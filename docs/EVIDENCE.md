@@ -22,4 +22,4 @@ Live RPC: **NOT VERIFIED** — network unavailable in the execution environment.
 
 Original approved JPEG inspected locally: 1254 × 1254 pixels, 654095 bytes. SHA-256: `7526a35ec5a9016c710be754ea55120a1462c54d36fb159cf5554508d5569109`.
 
-Repository upload of this binary is pending. No replacement artwork was generated.
+Repository asset verified against the original SHA-256. No replacement artwork was generated.

@@ -1,6 +1,6 @@
 <div align="center">
 
-<img src="https://d2ol7oe51mr4n9.cloudfront.net/user_3IVOKXTwsRFSR1qLtI96nF4edlB/48223f0d-174d-477c-9559-17ee88ef67a7.jpg" alt="NZT — Dubai-inspired digital asset emblem" width="800" />
+<img src="assets/NZT-DUBAI.jpg" alt="NZT — Dubai-inspired digital asset emblem" width="800" />
 
 
 # NZT
