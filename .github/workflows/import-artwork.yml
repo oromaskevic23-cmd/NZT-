@@ -1,0 +1,36 @@
+name: Import approved NZT artwork
+on:
+  push:
+    branches: [main]
+    paths: ['.github/workflows/import-artwork.yml']
+permissions:
+  contents: write
+jobs:
+  import:
+    runs-on: ubuntu-latest
+    timeout-minutes: 3
+    steps:
+      - name: Checkout
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+      - name: Fetch and verify original artwork
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p assets
+          curl --fail --silent --show-error --location --max-time 30 'https://d2ol7oe51mr4n9.cloudfront.net/user_3IVOKXTwsRFSR1qLtI96nF4edlB/48223f0d-174d-477c-9559-17ee88ef67a7.jpg' -o assets/NZT-DUBAI.jpg
+          echo '7526a35ec5a9016c710be754ea55120a1462c54d36fb159cf5554508d5569109  assets/NZT-DUBAI.jpg' | sha256sum --check
+          python - <<'PY'
+          from pathlib import Path
+          url = 'https://d2ol7oe51mr4n9.cloudfront.net/user_3IVOKXTwsRFSR1qLtI96nF4edlB/48223f0d-174d-477c-9559-17ee88ef67a7.jpg'
+          p = Path('README.md')
+          p.write_text(p.read_text().replace(url, 'assets/NZT-DUBAI.jpg'))
+          p = Path('assets/README.md')
+          p.write_text(p.read_text().replace('Upload the original JPEG before enabling a README image reference.', 'The original JPEG is stored in this repository.').replace('Upload status: pending','Upload status: verified against SHA-256'))
+          p = Path('docs/EVIDENCE.md')
+          p.write_text(p.read_text().replace('Repository upload of this binary is pending.', 'Repository asset verified against the original SHA-256.'))
+          PY
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add assets/NZT-DUBAI.jpg README.md assets/README.md docs/EVIDENCE.md
+          git commit -m 'assets: store original NZT artwork with verified SHA-256'
+          git push
