@@ -40,6 +40,7 @@ Always verify both chain ID and the full contract address before interacting. No
 - [Risk disclosures](docs/RISK.md)
 - [Brand assets](assets/README.md)
 - [Read-only verification guide](docs/VERIFICATION.md)
+- [Verification evidence — 8/8 offline tests](docs/EVIDENCE.md)
 
 Run the offline verification tests with `python -m unittest discover -s tests -v`.
 
