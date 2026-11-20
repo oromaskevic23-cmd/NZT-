@@ -51,7 +51,7 @@ Run the offline verification tests with `python -m unittest discover -s tests -v
 
 ## Engineering assurance
 
-**Evidence-driven security baseline (20 November 2026):** the read-only NZT verification tool pins the declared Polygon chain and contract, rejects unsafe or malformed RPC results, records a bytecode fingerprint and can demand matching observations from two independent RPC providers. These controls were re-tested with **19/19 passing synthetic/offline tests**, including the unchanged original NZT banner.
+**Evidence-driven security baseline (20 November 2026):** the read-only NZT verification tool pins the declared Polygon chain and contract, rejects unsafe or malformed RPC results, records a bytecode fingerprint and can demand matching observations from two independent RPC providers. These controls were re-tested with **20/20 passing synthetic/offline tests**, including the unchanged original NZT banner.
 
 A manual-only GitHub Actions workflow is available; no CI run or live two-provider check is claimed here. The deployed contract, ownership privileges, supply, source verification, exchange status and independent security audit **remain unverified**.
 
