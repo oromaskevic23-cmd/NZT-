@@ -113,6 +113,16 @@ class EnterpriseAssuranceTests(unittest.TestCase):
             with self.assertRaises(ValueError):
                 verify_two_providers(mock, provider, MANIFEST)
 
+    def test_cli_rejects_duplicate_rpc_endpoints_before_network(self):
+        from io import StringIO
+        from scripts.verify_token import main
+        with patch("sys.argv", ["verify_token.py", "--rpc", "https://rpc.example.org",
+                                "--rpc-secondary", "https://rpc.example.org"]):
+            with patch("scripts.verify_token.rpc") as network:
+                with patch("sys.stderr", new_callable=StringIO):
+                    self.assertEqual(main(), 1)
+                    network.assert_not_called()
+
     def test_completely_unknown_supply_remains_unverified(self):
         self.assertIsNone(MANIFEST["on_chain"]["total_supply_base_units"])
         self.assertEqual(MANIFEST["security"]["independent_audit"], "not_evidenced")
