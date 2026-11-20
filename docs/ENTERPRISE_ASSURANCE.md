@@ -29,7 +29,7 @@ Use `python -m unittest discover -s tests -v` from the root. An optional **manua
 
 ## 3. Evidence and truth constraints
 
-**Observed developer-run checkpoint:** 19 tests passed on Python 3.11, exit code 0, in an isolated execution environment against GitHub-committed source from branch `feat/enterprise-assurance-20261120`, including the original unchanged JPEG. Tests are local with mocked RPC observations. A successful test does not prove the real contract's deployment, token name, decimals, supply, ownership, audit or operational readiness.
+**Observed developer-run checkpoint:** 20 tests passed on Python 3.11, exit code 0, in an isolated execution environment against GitHub-committed source from branch `feat/enterprise-assurance-20261120`, including duplicate-provider URL rejection and the original unchanged JPEG. Tests are local with mocked RPC observations. A successful test does not prove the real contract's deployment, token name, decimals, supply, ownership, audit or operational readiness.
 
 The original **8/8 PASS** reference is historical and retained in [EVIDENCE.md](EVIDENCE.md). Distinguish a source commit, a local developer test, a GitHub workflow result and independent third-party assessment.
 
