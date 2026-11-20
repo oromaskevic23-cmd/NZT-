@@ -1,0 +1,8 @@
+# Advisory reviewer routing, not enforcement without protected branch rules.
+/token.json @oromaskevic23-cmd
+/scripts/ @oromaskevic23-cmd
+/tests/ @oromaskevic23-cmd
+/.github/ @oromaskevic23-cmd
+/docs/ENTERPRISE_ASSURANCE.md @oromaskevic23-cmd
+/SECURITY.md @oromaskevic23-cmd
+/assets/ @oromaskevic23-cmd
