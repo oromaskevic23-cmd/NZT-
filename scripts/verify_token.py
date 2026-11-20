@@ -117,7 +117,7 @@ def quantity(value):
     return int(value, 16)
 
 def validate_manifest(manifest):
-    if type(manifest) is not dict or manifest.get("schema_version") != 1 or manifest.get("project") != "NZT" or manifest.get("symbol") != "NZT":
+    if type(manifest) is not dict or type(manifest.get("schema_version")) is not int or manifest.get("schema_version") != 1 or manifest.get("project") != "NZT" or manifest.get("symbol") != "NZT":
         raise ValueError("Unexpected NZT manifest identity")
     network = manifest.get("network")
     contract = manifest.get("contract")
@@ -198,6 +198,8 @@ def main():
         manifest = json.loads((ROOT / "token.json").read_text())
         primary = lambda method, params: rpc(args.rpc, method, params)
         if args.rpc_secondary:
+            if args.rpc_secondary == args.rpc:
+                raise ValueError("Distinct primary and secondary RPC endpoints required")
             secondary = lambda method, params: rpc(args.rpc_secondary, method, params)
             result = verify_two_providers(primary, secondary, manifest)
         else:
