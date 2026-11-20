@@ -29,10 +29,10 @@ Repository asset verified against the original SHA-256. No replacement artwork w
 
 **Evidence class:** developer-run, synthetic/offline, GitHub-committed sources. No third-party security audit or live RPC verification.
 
-- Verification source: `scripts/verify_token.py` in commit `1c4802d4e526e9a89dc72e39f34734c9b9067edc`.
-- Additional tests: `tests/test_enterprise_assurance.py` in commit `04d5688b05b9bc26896dafa854a695bddb7e5fe8`; historical `tests/test_verify_token.py` retained.
+- Verification source: `scripts/verify_token.py` in commit `d6e914528043b6873ced6b8d1b069ba5394c8317`.
+- Additional tests: `tests/test_enterprise_assurance.py` in commit `e558add9e6f33ca815f7ba9eb1181462efed9ce6`; historical `tests/test_verify_token.py` retained.
 - Re-fetched actual branch files, including the original `assets/NZT-DUBAI.jpg`, and ran `python3 -m unittest discover -s tests -v` in isolated Python 3.11 compute.
-- **Observed result: 19 tests in 0.007 seconds, OK, exit code 0.** 11 new synthetic security/integrity tests plus 8 existing ones.
+- **Observed result: 20 tests in 0.011 seconds, OK, exit code 0.** 12 new synthetic security/integrity tests plus 8 existing ones.
 - Added checks cover pinned NZT contract and chain, HTTP endpoint restrictions, strict JSON-RPC response parsing, no redirect-following transport, bytecode SHA-256, stable block fields, optional two-provider agreement, and original brand SHA-256.
 - **Not tested here:** live Polygon chain, two real RPC providers, source/ownership/permission review, transaction controls, market data, and independent QA.
 - Manual GitHub Actions workflow is **available for opt-in execution** after merge; this entry does **not** claim it has run.
