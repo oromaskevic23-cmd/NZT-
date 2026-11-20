@@ -1,0 +1,28 @@
+# Local Python caches and temporary test output
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.coverage
+coverage.xml
+htmlcov/
+*.log
+*.tmp
+*.bak
+
+# Never commit provider credentials, wallet material, or local observations
+.env
+.env.*
+!.env.example
+*.pem
+*.p12
+*.pfx
+*.key
+*.keystore
+*secret*.json
+*private*.json
+.local/
+out/
+observations/
+reports/private/
+
+# Keep original approved artwork and source-code provenance in version control

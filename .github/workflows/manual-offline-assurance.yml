@@ -1,0 +1,28 @@
+name: NZT — manual offline assurance
+
+# Deliberately manual only: no automatic CI minutes or network RPC consumption.
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: nzt-offline-assurance-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  read-only-assurance:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Checkout pinned action
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+        with:
+          persist-credentials: false
+      - name: Run local tests without blockchain or secrets
+        env:
+          PYTHONDONTWRITEBYTECODE: "1"
+        run: |
+          python3 --version
+          python3 -m unittest discover -s tests -v
